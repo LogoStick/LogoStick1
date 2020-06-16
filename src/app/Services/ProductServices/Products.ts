@@ -59,4 +59,15 @@ export class Product {
   getCpu(): string {
     return this.cpu;
   }
+  equals(product: Product) {
+    return (
+      this.name === product.getName() &&
+      this.price === product.getPrice() &&
+      this.imageUrl === product.getImageUrl() &&
+      this.ramCapacity === product.getRamCapacity() &&
+      this.storageCapacity === product.getStorageCapacity() &&
+      this.graphicsManufacturer === product.getGraphicsManufacturer() &&
+      this.cpu === product.getCpu()
+    );
+  }
 }
