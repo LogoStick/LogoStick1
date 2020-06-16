@@ -14,7 +14,7 @@ export class ProductsFakeDBService extends AbstractProductService{
     this.shownProducts$ = new BehaviorSubject<Product[]>([]);
   }
 
-  addProduct(): Observable<Product> {
+  addProduct(product: Product): Observable<Product> {
     return undefined;
   }
 
@@ -28,7 +28,7 @@ export class ProductsFakeDBService extends AbstractProductService{
     return response;
   }
 
-  removeProduct(): Observable<Product> {
+  removeProduct(product: Product): Observable<Product> {
     return undefined;
   }
 

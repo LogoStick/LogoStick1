@@ -10,11 +10,11 @@ import {Product} from '../Services/ProductServices/Products';
 })
 export class FakeDBService {
 
-  addProduct(): Observable<Product> {
+  addProduct(product: Product): Observable<Product> {
     return undefined;
   }
 
-  removeProduct(): Observable<Product> {
+  removeProduct(product: Product): Observable<Product> {
     return undefined;
   }
 
