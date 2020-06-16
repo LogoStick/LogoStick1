@@ -15,6 +15,5 @@ export abstract class AbstractProductService {
   abstract listProductsFromAtoN(from: number, to: number): Observable<Product[]>;
   abstract addProduct(): Observable<Product>;
   abstract removeProduct(): Observable<Product>;
-
 }
 
