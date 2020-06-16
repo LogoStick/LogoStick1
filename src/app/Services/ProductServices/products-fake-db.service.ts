@@ -32,7 +32,7 @@ export class ProductsFakeDBService extends AbstractProductService{
     return undefined;
   }
 
-  searchForProductByCategories(categoriesObject): Observable<Product[]> {
+  searchForProductByOptions(categoriesObject): Observable<Product[]> {
     return undefined;
   }
 
@@ -41,6 +41,4 @@ export class ProductsFakeDBService extends AbstractProductService{
     response.subscribe(val => this.shownProducts$.next(val));
     return response;
   }
-
-
 }

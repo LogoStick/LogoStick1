@@ -18,7 +18,7 @@ export class FakeDBService {
     return undefined;
   }
 
-  searchForProductByCategories(categoriesObject): Observable<Product[]> {
+  searchForProductByOptions(optionsObject): Observable<Product[]> {
     return undefined;
   }
 

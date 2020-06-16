@@ -11,7 +11,7 @@ export abstract class AbstractProductService {
   protected $shownProducts;
   abstract getShownProducts(): Observable<Product[]>;
   abstract searchForProductsByName(searchingFor: string): Observable<Product[]>;
-  abstract searchForProductByCategories(categoriesObject): Observable<Product[]>;
+  abstract searchForProductByOptions(optionsObject): Observable<Product[]>;
   abstract listProductsFromAtoN(from: number, to: number): Observable<Product[]>;
   abstract addProduct(): Observable<Product>;
   abstract removeProduct(): Observable<Product>;
