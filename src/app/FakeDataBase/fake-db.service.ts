@@ -10,12 +10,26 @@ import {Product} from '../Services/ProductServices/Products';
 })
 export class FakeDBService {
 
-  addProduct(product: Product): Observable<Product> {
-    return undefined;
+  addProduct(product: Product): Observable<Product[]> {
+    const response: Observable<Product[]> = new Observable((observer) => {
+        productList.push(product);
+        observer.next();
+        observer.complete();
+    });
+    return response.pipe(delay(1000));
   }
 
-  removeProduct(product: Product): Observable<Product> {
-    return undefined;
+  removeProduct(product: Product): Observable<Product[]> {
+    const response: Observable<Product[]> = new Observable((observer) => {
+        productList.slice(
+          productList.findIndex(
+            (productInArray ) => {
+              return productInArray.equals(product);
+            }), 1);
+        observer.next();
+        observer.complete();
+    });
+    return response.pipe(delay(1000));
   }
 
   searchForProductByOptions(optionsObject): Observable<Product[]> {

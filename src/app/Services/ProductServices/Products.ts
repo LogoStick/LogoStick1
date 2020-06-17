@@ -7,7 +7,7 @@ export class Product {
   private graphicsManufacturer: string;
   private cpu: string;
   constructor() {
-    return this;
+
   }
   setName(name: string) {
     this.name = name;

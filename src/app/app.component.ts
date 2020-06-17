@@ -14,5 +14,9 @@ export class AppComponent {
   constructor(private abstractProductsService: AbstractProductService) {
     abstractProductsService.getShownProducts().subscribe(val => this.shownProds = val);
     abstractProductsService.listProductsFromAtoN(0, 100);
+    abstractProductsService.addProduct(new Product().setName('asus'));
+    abstractProductsService.addProduct(new Product().setName('lenovo'));
+    abstractProductsService.addProduct(new Product().setName('kek'));
+    console.log(this.shownProds);
   }
 }
