@@ -14,10 +14,8 @@ export class ProductsFakeDBService extends AbstractProductService{
     this.shownProducts$ = new BehaviorSubject<Product[]>([]);
   }
 
-  addProduct(product: Product): Observable<Product[]> {
-    const response = this.fakeDBService.addProduct(product);
-    // need to subscribe
-    return response;
+  addProduct(product: Product): void {
+    this.fakeDBService.addProduct(product);
   }
 
   getShownProducts(): Observable<Product[]> {
@@ -30,10 +28,8 @@ export class ProductsFakeDBService extends AbstractProductService{
     return response;
   }
 
-  removeProduct(product: Product): Observable<Product[]> {
-    const response = this.fakeDBService.removeProduct(product);
-    // need to subscribe
-    return response;
+  removeProduct(product: Product): void {
+    this.fakeDBService.removeProduct(product);
   }
 
   searchForProductByOptions(optionsObject): Observable<Product[]> {

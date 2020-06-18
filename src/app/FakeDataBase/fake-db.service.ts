@@ -10,26 +10,15 @@ import {Product} from '../Services/ProductServices/Products';
 })
 export class FakeDBService {
 
-  addProduct(product: Product): Observable<Product[]> {
-    const response: Observable<Product[]> = new Observable((observer) => {
-        productList.push(product);
-        observer.next();
-        observer.complete();
-    });
-    return response.pipe(delay(1000));
+  addProduct(product: Product): void {
+    productList.push(product);
   }
 
-  removeProduct(product: Product): Observable<Product[]> {
-    const response: Observable<Product[]> = new Observable((observer) => {
-        productList.slice(
-          productList.findIndex(
-            (productInArray ) => {
-              return productInArray.equals(product);
-            }), 1);
-        observer.next();
-        observer.complete();
+  removeProduct(product: Product): void {
+    const removedProductIndex: number = productList.findIndex((iteratedProduct) => {
+      return product.equals(iteratedProduct);
     });
-    return response.pipe(delay(1000));
+    productList.slice(removedProductIndex, 1);
   }
 
   searchForProductByOptions(optionsObject): Observable<Product[]> {

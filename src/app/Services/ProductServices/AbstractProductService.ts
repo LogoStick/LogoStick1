@@ -13,7 +13,7 @@ export abstract class AbstractProductService {
   abstract searchForProductsByName(searchingFor: string): Observable<Product[]>;
   abstract searchForProductByOptions(optionsObject): Observable<Product[]>;
   abstract listProductsFromAtoN(from: number, to: number): Observable<Product[]>;
-  abstract addProduct(product: Product): Observable<Product[]>;
-  abstract removeProduct(product: Product): Observable<Product[]>;
+  abstract addProduct(product: Product): void;
+  abstract removeProduct(product: Product): void;
 }
 

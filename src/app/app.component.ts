@@ -16,7 +16,12 @@ export class AppComponent {
     abstractProductsService.listProductsFromAtoN(0, 100);
     abstractProductsService.addProduct(new Product().setName('asus'));
     abstractProductsService.addProduct(new Product().setName('lenovo'));
-    abstractProductsService.addProduct(new Product().setName('kek'));
+    setTimeout(() => {
+      abstractProductsService.addProduct(new Product().setName('kek'));
+    }, 1000)
     console.log(this.shownProds);
+    setTimeout(() => {
+      abstractProductsService.removeProduct(new Product().setName('kek'));
+    }, 3000);
   }
 }
