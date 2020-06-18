@@ -37,9 +37,7 @@ export class FakeDBService {
 
   searchForProductByName(searchingFor: string): Observable<Product[]> {
     const foundProducts = productList.filter((product) => {
-        if (product.getName().toLowerCase().includes(searchingFor.toLowerCase())) {
-          return true;
-        }
+          return product.getName().toLowerCase().includes(searchingFor.toLowerCase());
       });
     const foundProducts$: Observable<Product[]> = new Observable((observer) => {
         observer.next(foundProducts);
