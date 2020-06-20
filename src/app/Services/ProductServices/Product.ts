@@ -1,3 +1,5 @@
+import {OptionsObject} from './OptionsObject';
+
 export class Product {
   private name: string;
   private price: number;
@@ -6,8 +8,8 @@ export class Product {
   private storageCapacity: number;
   private graphicsManufacturer: string;
   private cpu: string;
+  private criteria: OptionsObject;
   constructor() {
-
   }
   setName(name: string) {
     this.name = name;

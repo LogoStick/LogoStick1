@@ -1,5 +1,5 @@
 import {BehaviorSubject, Observable} from 'rxjs';
-import {Product} from './Products';
+import {Product} from './Product';
 
 export abstract class AbstractProductService {
   shownProducts$;

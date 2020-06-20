@@ -1,3 +1,3 @@
-import {Product} from '../Services/ProductServices/Products';
+import {Product} from '../Services/ProductServices/Product';
 
 export let productList: Product[] = [];

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {AbstractProductService} from './AbstractProductService';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {FakeDBService} from '../../FakeDataBase/fake-db.service';
-import {Product} from './Products';
+import {Product} from './Product';
+import {OptionsObject} from './OptionsObject';
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +33,11 @@ export class ProductsFakeDBService extends AbstractProductService{
     this.fakeDBService.removeProduct(product);
   }
 
-  searchForProductByOptions(optionsObject): Observable<Product[]> {
-    return undefined;
+  searchForProductByOptions(optionsObject: OptionsObject): Observable<Product[]> {
+    const response = this.fakeDBService.searchForProductByOptions(optionsObject);
+    response.subscribe((val) => this.shownProducts$.next(val));
+    console.log(this.shownProducts$.getValue());
+    return response;
   }
 
   searchForProductsByName(searchingFor: string): Observable<Product[]> {

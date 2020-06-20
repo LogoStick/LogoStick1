@@ -3,7 +3,8 @@ import {AbstractProductService} from '../Services/ProductServices/AbstractProduc
 import {Observable} from 'rxjs';
 import {productList} from './productsList';
 import {delay} from 'rxjs/operators';
-import {Product} from '../Services/ProductServices/Products';
+import {Product} from '../Services/ProductServices/Product';
+import {OptionsObject} from '../Services/ProductServices/OptionsObject';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,15 @@ export class FakeDBService {
     productList.slice(removedProductIndex, 1);
   }
 
-  searchForProductByOptions(optionsObject): Observable<Product[]> {
-    return undefined;
+  searchForProductByOptions(optionsObject: OptionsObject): Observable<Product[]> {
+    const foundProducts = productList.filter((product) => {
+      return optionsObject.doesProductMatchPresentOptions(product);
+    });
+    const foundProducts$: Observable<Product[]> = new Observable((observer) => {
+      observer.next(foundProducts);
+      observer.complete();
+    })
+    return foundProducts$.pipe(delay(1000));
   }
 
   getProductsFromAtoN(from: number, to: number): Observable<Product[]> {
