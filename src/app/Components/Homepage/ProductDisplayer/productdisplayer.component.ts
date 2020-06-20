@@ -11,7 +11,7 @@ import {takeUntil} from 'rxjs/operators';
 })
 export class ProductdisplayerComponent implements OnInit, OnDestroy {
   subscriptionDestroyer$ = new Subject();
-  showsProducts: Product[];
+  showsProducts: Product[] = [];
   constructor(private abstractProductsService: AbstractProductService) {
   }
 
