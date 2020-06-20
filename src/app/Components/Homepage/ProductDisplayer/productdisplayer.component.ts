@@ -16,9 +16,14 @@ export class ProductdisplayerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // PRODUCT INITER
+    this.abstractProductsService.addProduct(new Product().setName('kek').setPrice(1000));
+    this.abstractProductsService.addProduct(new Product().setName('check').setPrice(10000));
+    // FINITO
     this.abstractProductsService.getShownProducts()
       .pipe(takeUntil(this.subscriptionDestroyer$))
       .subscribe(value => this.showsProducts = value);
+    this.abstractProductsService.listProductsFromAtoN(0, 100);
   }
   ngOnDestroy(): void {
     this.subscriptionDestroyer$.next();

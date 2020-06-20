@@ -10,7 +10,7 @@ import {AppRoutingModule} from './Modules/custom-router/app-routing.module';
 import { CartComponent } from './Components/Homepage/cart/cart.component';
 import { SearchboxComponent } from './Components/Homepage/searchbox/searchbox.component';
 import { ProductdisplayerComponent } from './Components/Homepage/productdisplayer/productdisplayer.component';
-import { ProductComponent } from './Components/Homepage/product/product.component';
+import { DisplayedproductComponent } from './Components/Homepage/displayedproduct/displayedproduct.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { ProductComponent } from './Components/Homepage/product/product.componen
     CartComponent,
     SearchboxComponent,
     ProductdisplayerComponent,
-    ProductComponent
+    DisplayedproductComponent
   ],
   imports: [
     BrowserModule,
