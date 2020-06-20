@@ -9,6 +9,7 @@ export abstract class AbstractProductService {
    * addProduct and removeProduct always modify both database and shownProducts$
    */
   protected $shownProducts;
+  abstract getProductById(id: number): Observable<Product>;
   abstract getShownProducts(): Observable<Product[]>;
   abstract searchForProductsByName(searchingFor: string): Observable<Product[]>;
   abstract searchForProductByOptions(optionsObject): Observable<Product[]>;

@@ -1,6 +1,7 @@
 import {OptionsObject} from './OptionsObject';
 
 export class Product {
+  private id: number;
   private name: string;
   private price: number;
   private imageUrl: string;
@@ -10,6 +11,10 @@ export class Product {
   private cpu: string;
   private criteria: OptionsObject;
   constructor() {
+  }
+  setId(id: number) {
+    this.id = id;
+    return this;
   }
   setName(name: string) {
     this.name = name;
@@ -40,6 +45,9 @@ export class Product {
     return this;
   }
 
+  getId(): number {
+    return this.id;
+  }
   getName(): string {
     return this.name;
   }

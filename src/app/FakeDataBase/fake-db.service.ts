@@ -10,6 +10,14 @@ import {OptionsObject} from '../Services/ProductServices/OptionsObject';
   providedIn: 'root'
 })
 export class FakeDBService {
+  getProductById(id: number): Observable<Product> {
+    const foundProduct = productList.find((product => product.getId() === id));
+    const response: Observable<Product> = new Observable((observer) => {
+      observer.next(foundProduct);
+      observer.complete();
+    });
+    return response.pipe(delay(1000));
+  }
   addProduct(product: Product): void {
     productList.push(product);
   }

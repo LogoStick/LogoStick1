@@ -12,7 +12,8 @@ import {Observable} from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  shownProds: Product[];
+
   constructor(private abstractProductsService: AbstractProductService) {
+
   }
 }

@@ -47,4 +47,9 @@ export class ProductsFakeDBService extends AbstractProductService{
     return response;
   }
 
+  getProductById(id: number): Observable<Product> {
+    return this.fakeDBService.getProductById(id);
+  }
+
+
 }
