@@ -11,7 +11,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ProductsFakeDBService extends AbstractProductService{
   shownProducts$: BehaviorSubject<Product[]>;
-  constructor(private fakeDBService: FakeDBService, httpClient: HttpClient) {
+  constructor(private fakeDBService: FakeDBService, private httpClient: HttpClient) {
     super();
     this.shownProducts$ = new BehaviorSubject<Product[]>([]);
   }

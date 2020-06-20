@@ -10,7 +10,6 @@ import {OptionsObject} from '../Services/ProductServices/OptionsObject';
   providedIn: 'root'
 })
 export class FakeDBService {
-
   addProduct(product: Product): void {
     productList.push(product);
   }

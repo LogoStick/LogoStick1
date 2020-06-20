@@ -13,7 +13,7 @@ import {Observable} from 'rxjs';
 })
 export class AppComponent {
   shownProds: Product[];
-  constructor(private abstractProductsService: AbstractProductService, httpClient: HttpClient) {
+  constructor(private abstractProductsService: AbstractProductService) {
 
   }
 }
