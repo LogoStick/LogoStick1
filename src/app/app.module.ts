@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {AbstractProductService} from './Services/ProductServices/AbstractProductService';
 import {ProductsFakeDBService} from './Services/ProductServices/products-fake-db.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import {ProductsFakeDBService} from './Services/ProductServices/products-fake-db
   ],
   imports: [
     BrowserModule,
+    HttpClientModule
   ],
   providers: [
     {

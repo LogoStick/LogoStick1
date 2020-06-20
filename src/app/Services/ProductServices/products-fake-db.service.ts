@@ -4,13 +4,14 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {FakeDBService} from '../../FakeDataBase/fake-db.service';
 import {Product} from './Product';
 import {OptionsObject} from './OptionsObject';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsFakeDBService extends AbstractProductService{
   shownProducts$: BehaviorSubject<Product[]>;
-  constructor(private fakeDBService: FakeDBService) {
+  constructor(private fakeDBService: FakeDBService, httpClient: HttpClient) {
     super();
     this.shownProducts$ = new BehaviorSubject<Product[]>([]);
   }
