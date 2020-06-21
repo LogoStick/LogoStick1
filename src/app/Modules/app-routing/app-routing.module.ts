@@ -4,11 +4,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from '../../app.component';
 import {HomepageComponent} from '../../Components/homepage/homepage.component';
 import {ProductpageComponent} from '../../Components/productpage/productpage.component';
-import {ProductResolverService} from '../../Components/productpage/product-resolver.service';
+import {ProductPageResolverService} from '../../Resolvers/product-page-resolver.service';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'productpage/:id', component: ProductpageComponent},
+  {path: 'productpage/:id', component: ProductpageComponent, resolve: {product: ProductPageResolverService}},
 ]
 
 @NgModule({

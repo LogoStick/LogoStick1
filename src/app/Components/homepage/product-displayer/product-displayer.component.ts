@@ -19,7 +19,7 @@ export class ProductDisplayerComponent implements OnInit, OnDestroy {
       .subscribe(products => {
         this.shownProducts = products;
       });
-    this.abstractProductsService.listProductsFromAtoN(0, 2);
+    this.abstractProductsService.listProductsFromAtoN(0, 100);
   }
   ngOnDestroy(): void {
     this.unsubscriber$.next();

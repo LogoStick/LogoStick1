@@ -9,18 +9,10 @@ import {Product} from '../../Services/ProductServices/Product';
   styleUrls: ['./productpage.component.css']
 })
 export class ProductpageComponent implements OnInit {
-  product: Product = new Product();
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private  abstractProductsService: AbstractProductService) {
-    const productId = Number(activatedRoute.snapshot.params.id);
-    this.abstractProductsService.getProductById(productId).subscribe(product => {
-      if (product === undefined) {
-        router.navigateByUrl('');
-      } else {
-        this.product = product;
-      }
-    });
+  product: Product;
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.product = this.activatedRoute.snapshot.data.product;
   }
-
   ngOnInit(): void {
   }
 
