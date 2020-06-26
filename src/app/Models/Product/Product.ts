@@ -1,4 +1,4 @@
-import {OptionsObject} from './OptionsObject';
+import {OptionsObject} from '../OptionsObject/OptionsObject';
 
 export class Product {
   private id: number;

@@ -1,4 +1,4 @@
-import {Product} from './Product';
+import {Product} from '../Product/Product';
 
 export class OptionsObject {
   private priceRange = {from: 0, to: 0}

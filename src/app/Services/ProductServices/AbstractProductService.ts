@@ -1,5 +1,5 @@
 import {BehaviorSubject, Observable} from 'rxjs';
-import {Product} from './Product';
+import {Product} from '../../Models/Product/Product';
 
 export abstract class AbstractProductService {
   shownProducts$;
@@ -10,6 +10,7 @@ export abstract class AbstractProductService {
    */
   protected $shownProducts;
   abstract getProductById(id: number): Observable<Product>;
+  abstract doesProductExist(id: number): Observable<boolean>;
   abstract getShownProducts(): Observable<Product[]>;
   abstract searchForProductsByName(searchingFor: string): Observable<Product[]>;
   abstract searchForProductByOptions(optionsObject): Observable<Product[]>;

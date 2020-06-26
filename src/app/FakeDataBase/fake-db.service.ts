@@ -3,8 +3,8 @@ import {AbstractProductService} from '../Services/ProductServices/AbstractProduc
 import {Observable} from 'rxjs';
 import {productList} from './productsList';
 import {delay} from 'rxjs/operators';
-import {Product} from '../Services/ProductServices/Product';
-import {OptionsObject} from '../Services/ProductServices/OptionsObject';
+import {Product} from '../Models/Product/Product';
+import {OptionsObject} from '../Models/OptionsObject/OptionsObject';
 
 @Injectable({
   providedIn: 'root'
@@ -29,15 +29,9 @@ export class FakeDBService {
     productList.slice(removedProductIndex, 1);
   }
 
-  searchForProductByOptions(optionsObject: OptionsObject): Observable<Product[]> {
-    const foundProducts = productList.filter((product) => {
-      return optionsObject.doesProductMatchPresentOptions(product);
-    });
-    const foundProducts$: Observable<Product[]> = new Observable((observer) => {
-      observer.next(foundProducts);
-      observer.complete();
-    })
-    return foundProducts$.pipe(delay(1000));
+  searchForProductByOptions(): Observable<Product[]> {
+    // TO BE IMPLEMENTED
+    return null;
   }
 
   getProductsFromAtoN(from: number, to: number): Observable<Product[]> {
@@ -59,5 +53,14 @@ export class FakeDBService {
         observer.complete();
     });
     return foundProducts$.pipe(delay(1000));
+  }
+
+  doesProductExist(id: number): Observable<boolean> {
+    const productExists: boolean = productList.find(product => product.getId() === id) !== undefined;
+    const response: Observable<boolean> = new Observable((observer) => {
+      observer.next(productExists);
+      observer.complete();
+    })
+    return response.pipe(delay(1000));
   }
 }

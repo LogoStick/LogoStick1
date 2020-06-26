@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AbstractProductService} from '../../Services/ProductServices/AbstractProductService';
-import {Product} from '../../Services/ProductServices/Product';
+import {Product} from '../../Models/Product/Product';
+import {AbstractCartService} from '../../Services/CartService/AbstractCartService';
 
 @Component({
   selector: 'app-productpage',
@@ -10,10 +11,12 @@ import {Product} from '../../Services/ProductServices/Product';
 })
 export class ProductpageComponent implements OnInit {
   product: Product;
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private abstractCartService: AbstractCartService) {
     this.product = this.activatedRoute.snapshot.data.product;
   }
   ngOnInit(): void {
   }
 
+  addProductToCart() {
+  }
 }
