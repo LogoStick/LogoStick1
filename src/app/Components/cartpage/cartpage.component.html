@@ -1,0 +1,8 @@
+<a routerLink="/">go to homepage</a>
+<div style="border-style: solid;border-color: red" *ngFor="let productAmountPair of cart.getProductAmountPairs()">
+  Product name: {{productAmountPair.getProduct().getName()}} <br>
+  Product amount: {{productAmountPair.getCount()}}
+  <button (click)="abstractCartService.increaseCountOfProductByOne(productAmountPair.getProduct())">+</button>
+  <button (click)="abstractCartService.decreaseCountOfProductByOne(productAmountPair.getProduct())">-</button>
+</div>
+<br>Total price: {{cart.getTotalPrice()}}
