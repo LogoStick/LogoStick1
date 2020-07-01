@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {AppRoutingModule} from './Modules/app-routing/app-routing.module';
-import {ProductsFakeDBService} from './Services/ProductServices/products-fake-db.service';
+import {ProductsFakeDBService} from './Services/ProductServices/FakeDataBaseProductService/products-fake-db.service';
 import {ProductDisplayerComponent} from './Components/homepage/product-displayer/product-displayer.component';
 import {DisplayedProductComponent} from './Components/homepage/displayed-product/displayed-product.component';
 import {NotFoundProductPageComponent} from './Components/not-found-product-page/not-found-product-page.component';
@@ -16,6 +16,8 @@ import {ProductpageComponent} from './Components/productpage/productpage.compone
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {CartpageComponent} from './Components/cartpage/cartpage.component';
+import {DateBaseProductService} from './Services/ProductServices/DataBaseProductService/date-base-product.service';
+import {FakeDBService} from './FakeDataBase/fake-db.service';
 
 
 
@@ -42,6 +44,7 @@ import {CartpageComponent} from './Components/cartpage/cartpage.component';
     {
       provide: AbstractProductService,
       useClass: ProductsFakeDBService
+      // useClass: DateBaseProductService
     },
     {
       provide: AbstractCartService,

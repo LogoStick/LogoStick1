@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {AbstractProductService} from './AbstractProductService';
+import {AbstractProductService} from '../AbstractProductService';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {FakeDBService} from '../../FakeDataBase/fake-db.service';
-import {Product} from '../../Models/Product/Product';
-import {OptionsObject} from '../../Models/OptionsObject/OptionsObject';
+import {FakeDBService} from '../../../FakeDataBase/fake-db.service';
+import {Product} from '../../../Models/Product/Product';
+import {OptionsObject} from '../../../Models/OptionsObject/OptionsObject';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({

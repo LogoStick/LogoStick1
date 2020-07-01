@@ -9,8 +9,20 @@ export class Product {
   private storageCapacity: number;
   private graphicsManufacturer: string;
   private cpu: string;
-  private criteria: OptionsObject;
   constructor() {
+  }
+  static of(o: any): Product {
+    const {id, name, price, imageUrl, ramCapacity, storageCapacity, graphicsManufacturer, cpu} = o;
+    return new Product()
+      .setId(id)
+      .setName(name)
+      .setPrice(price)
+      .setImageUrl(imageUrl)
+      .setRamCapacity(ramCapacity)
+      .setStorageCapacity(storageCapacity)
+      .setGraphicsManufacturer(graphicsManufacturer)
+      .setCpu(cpu);
+    return null;
   }
   setId(id: number) {
     this.id = id;
