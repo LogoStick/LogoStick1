@@ -12,7 +12,6 @@ import {AbstractProductService} from '../../Services/ProductServices/AbstractPro
 })
 export class HomepageComponent implements OnInit {
   constructor(httpClient: HttpClient, abstractProductsService: AbstractProductService) {
-    console.log(abstractProductsService.doesProductExist(1));
   }
 
   ngOnInit(): void {

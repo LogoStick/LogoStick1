@@ -18,10 +18,8 @@ export class DateBaseProductService extends AbstractProductService{
   public shownProducts$: Subject<Product[]>;
 
   addProduct(product: Product): void {
-    this.httpClient.post(
-      this.baseUrl + 'add-product',
-      product
-    );
+    this.httpClient
+      .post(this.baseUrl + 'add-product', product).subscribe();
   }
 
   doesProductExist(id: number): Observable<boolean> {
@@ -32,10 +30,9 @@ export class DateBaseProductService extends AbstractProductService{
   }
 
   getProductById(id: number): Observable<Product> {
-    const response = this.httpClient.get<Product>(
-      this.baseUrl + 'product-service/get-product-by-id/' + id
-    )
-      .pipe(map(product => Product.of(product)));
+    const response = this.httpClient
+      .get<Product>(this.baseUrl + '/get-product-by-id/' + id)
+      .pipe(map(responseProduct => Product.of(responseProduct)));
     return response;
   }
 
@@ -44,21 +41,17 @@ export class DateBaseProductService extends AbstractProductService{
   }
 
   listProductsFromAtoN(from: number, to: number): Observable<Product[]> {
-    const response = this.httpClient.get<Product[]>(
-      this.baseUrl + 'list-products-from-a-to-n/' + from + '/' + to
-    ).pipe(
-        map(
-          productArray => productArray.map(product => Product.of(product)))
-      );
+    const response = this.httpClient
+      .get<Product[]>(this.baseUrl + 'list-products-from-a-to-n/' + from + '/' + to)
+      .pipe(map(responseProducts => {
+        return responseProducts.map(responseProduct => Product.of(responseProduct));
+      }));
     response.subscribe(productArray => this.shownProducts$.next(productArray));
     return response;
   }
 
   removeProduct(product: Product): void {
-    this.httpClient.post(
-      this.baseUrl + 'remove-product',
-      product
-    );
+    this.httpClient.post(this.baseUrl + 'remove-product', product).subscribe();
   }
 
   searchForProductByOptions(optionsObject): Observable<Product[]> {
@@ -66,10 +59,12 @@ export class DateBaseProductService extends AbstractProductService{
   }
 
   searchForProductsByName(searchingFor: string): Observable<Product[]> {
-    const response = this.httpClient.get<Product[]>(
-      this.baseUrl + 'search-for-products-by-name' + searchingFor
-    );
-    response.subscribe(val => this.shownProducts$.next(val));
+    const response = this.httpClient.get<Product[]>(this.baseUrl + 'search-for-products-by-name/' + searchingFor)
+      .pipe(
+        map(passedProducts => passedProducts.map(product => Product.of(product)))
+      );
+    response.subscribe(responseProducts => this.shownProducts$.next(responseProducts));
     return response;
   }
 }
+

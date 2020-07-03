@@ -43,8 +43,8 @@ import {FakeDBService} from './FakeDataBase/fake-db.service';
   providers: [
     {
       provide: AbstractProductService,
-      useClass: ProductsFakeDBService
-      // useClass: DateBaseProductService
+      // useClass: ProductsFakeDBService
+      useClass: DateBaseProductService
     },
     {
       provide: AbstractCartService,
