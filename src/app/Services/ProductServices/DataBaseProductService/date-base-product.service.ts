@@ -22,7 +22,7 @@ export class DateBaseProductService extends AbstractProductService{
       .post(this.baseUrl + 'add-product', product).subscribe();
   }
 
-  doesProductExist(id: number): Observable<boolean> {
+  doesProductExistById(id: number): Observable<boolean> {
     const response = this.httpClient.get<boolean>(
       this.baseUrl + 'does-product-exist/' + id,
     );
@@ -65,6 +65,10 @@ export class DateBaseProductService extends AbstractProductService{
       );
     response.subscribe(responseProducts => this.shownProducts$.next(responseProducts));
     return response;
+  }
+
+  doesProductExist(product: Product): Observable<boolean> {
+    return this.httpClient.post<boolean>(this.baseUrl + 'does-product-exist', product);
   }
 }
 

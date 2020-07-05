@@ -9,7 +9,8 @@ export abstract class AbstractProductService {
    * addProduct and removeProduct always modify both database and shownProducts$
    */
   abstract getProductById(id: number): Observable<Product>;
-  abstract doesProductExist(id: number): Observable<boolean>;
+  abstract doesProductExistById(id: number): Observable<boolean>;
+  abstract doesProductExist(product: Product): Observable<boolean>;
   abstract getShownProducts(): Observable<Product[]>;
   abstract searchForProductsByName(searchingFor: string): Observable<Product[]>;
   abstract searchForProductByOptions(optionsObject): Observable<Product[]>;

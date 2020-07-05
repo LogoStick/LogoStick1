@@ -55,12 +55,20 @@ export class FakeDBService {
     return foundProducts$.pipe(delay(1000));
   }
 
-  doesProductExist(id: number): Observable<boolean> {
+  doesProductExistById(id: number): Observable<boolean> {
     const productExists: boolean = productList.find(product => product.getId() === id) !== undefined;
     const response: Observable<boolean> = new Observable((observer) => {
       observer.next(productExists);
       observer.complete();
     })
+    return response.pipe(delay(1000));
+  }
+  doesProductExist(product: Product): Observable<boolean> {
+    const doesProductExist = productList.some(productInDb => productInDb.equals(product));
+    const response: Observable<boolean> = new Observable((observer) => {
+      observer.next(doesProductExist);
+      observer.complete();
+    });
     return response.pipe(delay(1000));
   }
 }

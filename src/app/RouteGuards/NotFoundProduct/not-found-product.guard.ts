@@ -12,12 +12,12 @@ export class NotFoundProductGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this.abstractProductsService.doesProductExist(Number(next.params.id)).subscribe((response) => {
+    this.abstractProductsService.doesProductExistById(Number(next.params.id)).subscribe((response) => {
       if (response === false) {
         this.router.navigateByUrl('not-found-product-page');
       }
     })
-    return this.abstractProductsService.doesProductExist(Number(next.params.id));
+    return this.abstractProductsService.doesProductExistById(Number(next.params.id));
   }
 
 }

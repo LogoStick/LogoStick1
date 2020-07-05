@@ -5,6 +5,7 @@ import {FakeDBService} from '../../../FakeDataBase/fake-db.service';
 import {Product} from '../../../Models/Product/Product';
 import {OptionsObject} from '../../../Models/OptionsObject/OptionsObject';
 import {HttpClient} from '@angular/common/http';
+import {productList} from '../../../FakeDataBase/productsList';
 
 @Injectable({
   providedIn: 'root'
@@ -48,8 +49,12 @@ export class ProductsFakeDBService extends AbstractProductService{
     return this.fakeDBService.getProductById(id);
   }
 
-  doesProductExist(id: number): Observable<boolean> {
-    return this.fakeDBService.doesProductExist(id);
+  doesProductExistById(id: number): Observable<boolean> {
+    return this.fakeDBService.doesProductExistById(id);
+  }
+
+  doesProductExist(product: Product): Observable<boolean> {
+    return this.fakeDBService.doesProductExist(product);
   }
 
 
