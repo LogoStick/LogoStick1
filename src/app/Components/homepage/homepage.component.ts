@@ -5,6 +5,7 @@ import {Product} from '../../Models/Product/Product';
 import {HttpClient} from '@angular/common/http';
 import {productList} from '../../FakeDataBase/productsList';
 import {AbstractProductService} from '../../Services/ProductServices/AbstractProductService';
+import {AbstractAuthService} from '../../Services/AuthService/AbstractAuthService';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',

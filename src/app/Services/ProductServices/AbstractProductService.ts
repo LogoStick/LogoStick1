@@ -6,7 +6,7 @@ export abstract class AbstractProductService {
 
   /**
    * searchForProductByName and listProductsFromAtoN always modify shownProducts$
-   * addProduct and removeProduct always modify both database and shownProducts$
+   * addProduct and removeProduct always modify database
    */
   abstract getProductById(id: number): Observable<Product>;
   abstract doesProductExistById(id: number): Observable<boolean>;

@@ -6,7 +6,6 @@ import {Product} from '../../../Models/Product/Product';
 import {OptionsObject} from '../../../Models/OptionsObject/OptionsObject';
 import {HttpClient} from '@angular/common/http';
 import {productList} from '../../../FakeDataBase/productsList';
-
 @Injectable({
   providedIn: 'root'
 })

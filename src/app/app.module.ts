@@ -14,10 +14,17 @@ import {AbstractCartService} from './Services/CartService/AbstractCartService';
 import {HomepageComponent} from './Components/homepage/homepage.component';
 import {ProductpageComponent} from './Components/productpage/productpage.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CartpageComponent} from './Components/cartpage/cartpage.component';
 import {DateBaseProductService} from './Services/ProductServices/DataBaseProductService/date-base-product.service';
 import {FakeDBService} from './FakeDataBase/fake-db.service';
+import {AbstractAuthService} from './Services/AuthService/AbstractAuthService';
+import {AuthService} from './Services/AuthService/AuthService/auth.service';
+import {AuthInterceptorService} from './HttpInterceptorServices/AuthInterceptorService/auth-interceptor.service';
+import { LoginpageComponent } from './Components/loginpage/loginpage.component';
+import { RegisterpageComponent } from './Components/registerpage/registerpage.component';
+import { ChangepasswordPageComponent } from './Components/changepassword-page/changepassword-page.component';
+import { PurchasePageComponent } from './Components/purchase-page/purchase-page.component';
 
 
 
@@ -32,7 +39,11 @@ import {FakeDBService} from './FakeDataBase/fake-db.service';
     ProductpageComponent,
     CartpageComponent,
     DisplayedcartproductComponent,
-    NotFoundProductPageComponent
+    NotFoundProductPageComponent,
+    LoginpageComponent,
+    RegisterpageComponent,
+    ChangepasswordPageComponent,
+    PurchasePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +60,15 @@ import {FakeDBService} from './FakeDataBase/fake-db.service';
     {
       provide: AbstractCartService,
       useClass: CartService
+    },
+    {
+      provide: AbstractAuthService,
+      useClass: AuthService
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

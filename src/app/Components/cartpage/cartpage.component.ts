@@ -5,6 +5,7 @@ import {Cart} from '../../Models/Cart/Cart';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {ProductCountPair} from '../../Models/ProductCountPair/ProductCountPair';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cartpage',
@@ -14,7 +15,7 @@ import {ProductCountPair} from '../../Models/ProductCountPair/ProductCountPair';
 export class CartpageComponent implements OnInit, OnDestroy {
   unsubscriber$ = new Subject();
   cart = this.abstractCartService.getCartSnapshot();
-  constructor(public abstractCartService: AbstractCartService) {
+  constructor(public abstractCartService: AbstractCartService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -22,4 +23,7 @@ export class CartpageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
   }
 
+  purchase() {
+    this.router.navigateByUrl('purchase');
+  }
 }

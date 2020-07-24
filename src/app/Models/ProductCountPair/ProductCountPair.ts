@@ -33,6 +33,6 @@ export class ProductCountPair {
     );
   }
   productOfPairEquals(product: Product): boolean {
-    return this.getProduct().equals(product);
+    return this.product.equals(product);
   }
 }

@@ -8,6 +8,8 @@ import {ProductPageResolverService} from '../../Resolvers/product-page-resolver.
 import {CartpageComponent} from '../../Components/cartpage/cartpage.component';
 import {NotFoundProductPageComponent} from '../../Components/not-found-product-page/not-found-product-page.component';
 import {NotFoundProductGuard} from '../../RouteGuards/NotFoundProduct/not-found-product.guard';
+import {LoginpageComponent} from '../../Components/loginpage/loginpage.component';
+import {PurchasePageComponent} from '../../Components/purchase-page/purchase-page.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -17,7 +19,9 @@ const routes: Routes = [
     canActivate: [NotFoundProductGuard]
   },
   {path: 'cartpage', component: CartpageComponent},
-  {path: 'not-found-product-page', component: NotFoundProductPageComponent}
+  {path: 'not-found-product-page', component: NotFoundProductPageComponent},
+  {path: 'login', component: LoginpageComponent},
+  {path: 'purchase', component: PurchasePageComponent}
 ]
 
 @NgModule({
